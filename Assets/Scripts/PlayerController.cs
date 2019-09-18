@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 50.0f;
     private CharacterController characterController;
+
+    public Rigidbody head;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +20,23 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
             0, Input.GetAxis("Vertical"));
         characterController.SimpleMove(moveDirection * moveSpeed);
+    }
+
+    void FixedUpdate()
+    {
+        //This code moves the head when marine moves.
+        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"),
+            0, Input.GetAxis("Vertical"));
+
+        //If the value equals vector zero marine is still standing.
+        if(moveDirection==Vector3.zero)
+        {
+            //ToDo
+        }
+        else
+        {
+            //Direction and Force amount are multiplied
+            head.AddForce(transform.right * 150, ForceMode.Acceleration);
+        }
     }
 }
