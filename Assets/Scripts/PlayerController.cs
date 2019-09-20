@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     public LayerMask layerMask;
     private Vector3 currentLookTarget = Vector3.zero;
-
     public Rigidbody head;
+
     // Start is called before the first frame update
     void Start()
     {

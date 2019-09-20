@@ -45,10 +45,14 @@ public class GameManager : MonoBehaviour
                     if (aliensOnScreen < maxAliensOnScreen)
                     {
                         aliensOnScreen += 1;
+                        //Spawn point is genetrated
                         int spawnPoint = -1;
+                        //Loop runs until it finds a spawn point
                         while (spawnPoint == -1)
                         {
+                            //Produces a random number as a spawn point
                             int randomNumber = Random.Range(0, spawnPoints.Length - 1);
+                            //To check active spawn points
                             if (!previousSpawnLocations.Contains(randomNumber))
                             {
                                 previousSpawnLocations.Add(randomNumber);
